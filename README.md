@@ -1,7 +1,8 @@
 # Link Shortener Take Home
 
-So let's make a link shortener. Let's make it with rails.
-Let's give it test coverage. Let's use Postgres.
+So let's make a link shortener. Let's make it with rails. Let's use Postgres.
+
+**Let's give it test coverage!!!**
 
 Please clone this repo and push to a new repo:
 1. `git clone git@github.com:Fullscreen/link-shortener.git`
