@@ -5,7 +5,7 @@ class ShortLinksController < ApplicationController
     @short_link = ShortLink.find_by(slug: params[:slug])
 
     if @short_link.active?
-      @short_link.increment!(:view_count)
+      ShortLinkViewCounterJob.perform_later(@short_link)
       redirect_to @short_link.original_url
     else
       render_not_found

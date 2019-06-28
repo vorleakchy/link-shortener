@@ -9,12 +9,12 @@ RSpec.describe 'Short link redirect', type: :request do
       expect(response).to redirect_to(short_link.original_url)
     end
 
-    it 'increments view count' do
+    it 'calls short link view counter job' do
       short_link = create(:short_link)
 
       expect {
         get short_path(short_link.slug)
-      }.to change {short_link.reload.view_count}.by(1)
+      }.to have_enqueued_job(ShortLinkViewCounterJob).with(short_link)
     end
   end
 
