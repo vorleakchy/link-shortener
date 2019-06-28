@@ -1,0 +1,11 @@
+<%= render 'flash' %>
+
+<p>
+  <strong>Shortened URL:</strong>
+  <%= link_to nil, short_url(@short_link.slug) %>
+</p>
+
+<p>
+  <strong>Admin URL:</strong>
+  <%= link_to nil, edit_short_link_url(@short_link) %>
+</p>

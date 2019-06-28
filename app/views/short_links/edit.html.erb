@@ -1,0 +1,21 @@
+<%= render 'flash' %>
+
+<p>
+  <strong>Shortened URL:</strong>
+  <%= link_to nil, short_url(@short_link.slug) %>
+</p>
+
+<p>
+  <strong>View Count:</strong>
+  <%= @short_link.view_count %>
+</p>
+
+<% if @short_link.active? %>
+  <%= form_for @short_link, url: expire_short_link_path, mehtod: :path do |f| %>
+    <%= f.submit 'Expire' %>
+  <% end %>
+<% else %>
+  <p>
+    This shortened URL is expired.
+  </p>
+<% end %>
